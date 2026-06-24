@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StellarPay — Level 1 White Belt
 
-## Getting Started
+A simple Stellar payment dApp built for the **Level 1 – White Belt** challenge. Connect your Freighter wallet on **Testnet**, view your XLM balance, and send payments to any Stellar address.
 
-First, run the development server:
+## Features
+
+- **Wallet connection** — Connect and disconnect via [Freighter](https://www.freighter.app/)
+- **Balance display** — Fetches and shows the connected account's native XLM balance
+- **Testnet funding** — One-click Friendbot funding for unfunded accounts
+- **Send XLM** — Build, sign, and submit payment transactions on Stellar testnet
+- **Transaction feedback** — Success/failure states with transaction hash and explorer link
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) (App Router, TypeScript)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [@stellar/stellar-sdk](https://github.com/stellar/js-stellar-sdk)
+- [@stellar/freighter-api](https://docs.freighter.app/)
+
+## Prerequisites
+
+1. [Node.js](https://nodejs.org/) 18+
+2. [Freighter browser extension](https://www.freighter.app/) installed
+3. Freighter set to **Testnet** (Settings → Network → Testnet)
+
+## Setup
 
 ```bash
+# Clone the repository
+git clone https://github.com/Abidoyesimze/Stellar-challenge.git
+cd stellar-challenge1
+
+# Install dependencies
+npm install
+
+# Start the dev server (HTTPS required for Freighter)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [https://localhost:3000](https://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> **Note:** Freighter requires a secure context (HTTPS). The dev script uses `--experimental-https` so the wallet can connect on localhost.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
 
-## Learn More
+1. Click **Connect Freighter** and approve the connection in the extension popup.
+2. If your account has no testnet XLM, click **Fund via Friendbot** to receive free test lumens.
+3. Enter a destination Stellar address and amount, then click **Send XLM on Testnet**.
+4. Approve the transaction in Freighter — you'll see a success message with the transaction hash and a link to Stellar Expert.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+├── app/
+│   ├── page.tsx          # Main dApp page
+│   ├── layout.tsx        # Root layout
+│   └── globals.css       # Global styles
+├── components/
+│   ├── WalletButton.tsx  # Connect / disconnect UI
+│   ├── BalanceCard.tsx   # XLM balance display
+│   └── SendPaymentForm.tsx # Payment form + tx feedback
+├── hooks/
+│   └── useWallet.ts      # Wallet state & balance logic
+└── lib/
+    ├── stellar.ts        # Horizon server & helpers
+    └── sendPayment.ts    # Transaction building & submission
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
+> Add screenshots here after testing locally. Place images in `docs/screenshots/` and reference them below.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Wallet connected | Balance displayed | Successful transaction |
+|---|---|---|
+| ![Wallet connected](docs/screenshots/wallet-connected.png) | ![Balance](docs/screenshots/balance-displayed.png) | ![Transaction success](docs/screenshots/transaction-success.png) |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+Deploy to [Vercel](https://vercel.com/) or any static host that supports Next.js:
+
+```bash
+npm run build
+npm start
+```
+
+## Challenge Checklist
+
+- [x] Freighter wallet integration (Testnet)
+- [x] Wallet connect / disconnect
+- [x] XLM balance fetch and display
+- [x] Send XLM transaction on testnet
+- [x] Transaction success/failure feedback with hash
+- [x] Public GitHub repository
+- [x] README with setup instructions
+- [ ] Screenshots (capture after local testing)
+
+## License
+
+MIT
