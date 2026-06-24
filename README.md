@@ -68,11 +68,11 @@ Open [https://localhost:3000](https://localhost:3000) in your browser.
 
 ## Screenshots
 
-> Add screenshots here after testing locally. Place images in `docs/screenshots/` and reference them below.
+| Wallet connected & balance displayed |
+|:---:|
+| ![Wallet connected with XLM balance on testnet](public/wallet-and-balance.png) |
 
-| Wallet connected | Balance displayed | Successful transaction |
-|---|---|---|
-| ![Wallet connected](docs/screenshots/wallet-connected.png) | ![Balance](docs/screenshots/balance-displayed.png) | ![Transaction success](docs/screenshots/transaction-success.png) |
+> **Tip:** For full submission credit, also add a screenshot of a **successful transaction** (showing the green success message and transaction hash) as `public/transaction-success.png`.
 
 ## Deployment
 
@@ -92,7 +92,8 @@ npm start
 - [x] Transaction success/failure feedback with hash
 - [x] Public GitHub repository
 - [x] README with setup instructions
-- [ ] Screenshots (capture after local testing)
+- [x] Screenshots — wallet connected & balance (`public/wallet-and-balance.png`)
+- [ ] Screenshot — successful testnet transaction (optional but recommended)
 
 ## License
 
